@@ -1,0 +1,16 @@
+<div class="task-confirmation-container">
+
+    <h1>{{data.title}}</h1>
+
+    <div class="task-confirmation-content">{{data.content}}</div>
+
+    <!--start: footer-->
+    <div class="task-confirmation-footer">
+        <div fxLayout="row">
+            <button (click)="close()" mat-flat-button color="primary">{{data.okBtn}}</button>
+            <div fxFlex></div>
+            <button (click)="close()" mat-flat-button>{{data.cancelBtn}}</button>
+        </div>
+    </div>
+    <!--end: footer-->
+</div>

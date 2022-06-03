@@ -1,0 +1,37 @@
+<div class="task-dialog-container">
+    <h1>{{title}}</h1>
+    <!--start: form-->
+    <div [formGroup]="taskManagerFormGroup" class="form-container">
+
+        <mat-form-field class="form-field-item full-width" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" placeholder="Name">
+            <mat-error *ngIf="taskManagerFormGroup.controls['name'].hasError('required')">Name is required</mat-error>
+            <mat-error *ngIf="taskManagerFormGroup.controls['name'].hasError('email')">Wrong email format</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field-item full-width" appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" placeholder="Input your description here"></textarea>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field-item full-width" appearance="fill">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+                <mat-option value="New">New</mat-option>
+                <mat-option value="In Progress">In Progress</mat-option>
+                <mat-option value="Done">Done</mat-option>
+              </mat-select>
+        </mat-form-field>
+    </div>
+    <!--end: form-->
+    <!--start: footer-->
+    <div class="task-dialog-footer">
+        <div fxLayout="row">
+            <button (click)="save()" [disabled]="taskManagerFormGroup.invalid" mat-flat-button color="primary">Save</button>
+            <div fxFlex></div>
+            <button (click)="cancel()" mat-flat-button>Cancel</button>
+        </div>
+    </div>
+    <!--end: footer-->
+</div>
