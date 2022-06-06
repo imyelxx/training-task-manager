@@ -37,7 +37,11 @@
                 <!-- Status Column -->
                 <ng-container matColumnDef="status">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
-                  <td mat-cell *matCellDef="let element"> {{element.status | uppercase }} </td>
+                  <td mat-cell *matCellDef="let element"> 
+                    <div class="pill" [ngClass]="{'pill-new': element.status == 'New', 'pill-inprogress': element.status == 'Inprogress', 'pill-done': element.status == 'Done'}">
+                      {{element.status}}
+                    </div>
+                  </td>
                 </ng-container>
 
                  <!-- Created Column -->
@@ -57,7 +61,7 @@
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Completion Rating </th>
                     <td mat-cell *matCellDef="let element"> 
                       <ng-container *ngIf="element.status == 'Done'">
-                          <app-rating-component [rating]="element.completionRate" (notify)="notifyEvent($event)"></app-rating-component>
+                          <app-rating-component [rating]="element.completionRate"></app-rating-component>
                       </ng-container>
                     </td>
                   </ng-container>

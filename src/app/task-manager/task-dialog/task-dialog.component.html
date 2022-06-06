@@ -1,36 +1,60 @@
 <div class="task-dialog-container">
     <h1>{{title}}</h1>
-    <!--start: form-->
-    <div [formGroup]="taskManagerFormGroup" class="form-container">
+    
+    <mat-stepper #stepper>
+        <mat-step>
+            <ng-template matStepLabel>{{title}} Task</ng-template>
+            
+            <!--start: form-->
+            <div [formGroup]="taskManagerFormGroup" class="form-container">
 
-        <mat-form-field class="form-field-item full-width" appearance="fill">
-            <mat-label>Name</mat-label>
-            <input matInput formControlName="name" placeholder="Name">
-            <mat-error *ngIf="taskManagerFormGroup.controls['name'].hasError('required')">Name is required</mat-error>
-        </mat-form-field>
+                <mat-form-field class="form-field-item full-width" appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" placeholder="Name">
+                    <mat-error *ngIf="taskManagerFormGroup.controls['name'].hasError('required')">Name is required</mat-error>
+                </mat-form-field>
 
-        <mat-form-field class="form-field-item full-width" appearance="fill">
-            <mat-label>Description</mat-label>
-            <textarea matInput formControlName="description" placeholder="Input your description here"></textarea>
-        </mat-form-field>
-        
-        <mat-form-field class="form-field-item full-width" appearance="fill">
-            <mat-label>Status</mat-label>
-            <mat-select formControlName="status">
-                <mat-option value="New">New</mat-option>
-                <mat-option value="In Progress">In Progress</mat-option>
-                <mat-option value="Done">Done</mat-option>
-              </mat-select>
-        </mat-form-field>
-    </div>
-    <!--end: form-->
-    <!--start: footer-->
-    <div class="task-dialog-footer">
-        <div fxLayout="row">
-            <button (click)="save()" [disabled]="taskManagerFormGroup.invalid" mat-flat-button color="primary">Save</button>
-            <div fxFlex></div>
-            <button (click)="cancel()" mat-flat-button>Cancel</button>
+                <mat-form-field class="form-field-item full-width" appearance="fill">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="description" placeholder="Input your description here"></textarea>
+                </mat-form-field>
+                
+                <mat-form-field class="form-field-item full-width" appearance="fill">
+                    <mat-label>Status</mat-label>
+                    <mat-select formControlName="status">
+                        <mat-option value="New">New</mat-option>
+                        <mat-option value="Inprogress">Inprogress</mat-option>
+                        <mat-option value="Done">Done</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <!--end: form-->
+            <!--start: footer-->
+            <div class="task-dialog-footer">
+                <div fxLayout="row">
+                    <button (click)="cancel()" mat-flat-button>Cancel</button>
+                    <div fxFlex></div>
+                    <button [disabled]="taskManagerFormGroup.invalid" matStepperNext mat-flat-button color="primary">Next</button>
+                </div>
+            </div>
+            <!--end: footer-->
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>{{title}} Tag</ng-template>
+            <app-tag [tags]="data.task ? data.task.tags : []" (notifyStepper)="tagStepperEvent($event)"></app-tag>
+        </mat-step>
+        <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <!--start: footer-->
+        <div class="task-dialog-footer">
+            <div fxLayout="row"><button mat-button matStepperPrevious>Back</button>
+                <div fxFlex></div>
+                <button (click)="save()" mat-flat-button color="primary">Save</button>
+            </div>
         </div>
-    </div>
-    <!--end: footer-->
+        <!--end: footer-->
+        </mat-step>
+    </mat-stepper>
+
 </div>

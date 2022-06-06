@@ -6,4 +6,11 @@ export interface TaskModel {
     completionRate: number;
     created: Date;
     modified: Date;
+    tags: ITags[];
+}
+export interface ITags {
+    id: number;
+    name: string;
+    created: Date;
+    modified: Date;
 }

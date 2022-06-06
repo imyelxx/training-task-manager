@@ -11,6 +11,7 @@ import { TaskDialogComponent } from './task-manager/task-dialog/task-dialog.comp
 import { ConfirmationDialogComponent } from './task-manager/confirmation-dialog/confirmation-dialog.component';
 import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
 import { RatingComponentComponent } from './shared/rating-component/rating-component.component';
+import { TagComponent } from './task-manager/task-dialog/tag/tag.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { RatingComponentComponent } from './shared/rating-component/rating-compo
     ConfirmationDialogComponent,
     ConvertToSpacesPipe,
     RatingComponentComponent,
+    TagComponent,
   ],
   exports: [ ],
   imports: [

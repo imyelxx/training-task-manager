@@ -1,0 +1,19 @@
+ <!--start: form-->
+ <div [formGroup]="tagFormGroup" class="form-container">
+
+    <mat-form-field class="form-field-item full-width" appearance="fill">
+        <mat-label>Tag Name</mat-label>
+        <input matInput formControlName="name" placeholder="Name">
+        <mat-error *ngIf="tagFormGroup.controls['name'].hasError('required')">Tag is required</mat-error>
+    </mat-form-field>
+</div>
+<!--end: form-->
+<!--start: footer-->
+<div class="task-dialog-footer">
+    <div fxLayout="row">
+        <button (click)="step(false)" mat-flat-button>Back</button> 
+        <div fxFlex></div>
+        <button [disabled]="tagFormGroup.invalid" (click)="step(true)" mat-flat-button color="primary">Next</button>
+    </div>
+</div>
+<!--end: footer-->

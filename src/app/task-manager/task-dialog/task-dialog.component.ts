@@ -1,6 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatStepper } from '@angular/material/stepper';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
@@ -9,29 +10,30 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
   styleUrls: ['./task-dialog.component.scss']
 })
 export class TaskDialogComponent implements OnInit {
-
+  @ViewChild('stepper') stepper?: MatStepper;
   title: string = '';
   taskManagerFormGroup = new FormGroup({
     name: new FormControl(null, [Validators.required]),
     description: new FormControl(),
     status: new FormControl(),
   })
-  sample: string = 'Sample';
 
   constructor(private dialog: MatDialog, 
               public dialogRef: MatDialogRef<TaskDialogComponent>, //to close the dialog
-              @Inject(MAT_DIALOG_DATA) public data: string) 
+              @Inject(MAT_DIALOG_DATA) public data: any) 
               { 
-                this.title = data;
+                this.title = data.title;
               }
 
   ngOnInit(): void {
-    console.log("init value: ", this.sample)
-    this.setValue()
+    console.log("init value: ", this.data)
+    if(this.data){
+      this.setValue()
+    }
   }
 
   setValue(){
-    this.taskManagerFormGroup.setValue({name: 'Sample Task', description: 'Sample description', status: 'New'})
+    this.taskManagerFormGroup.setValue({name: this.data.task.name, description: this.data.task.description, status: this.data.task.status})
   }
 
   save(){
@@ -51,6 +53,14 @@ export class TaskDialogComponent implements OnInit {
 
   cancel(){
     this.dialogRef.close()
+  }
+
+  tagStepperEvent(isNext: boolean){
+   if(isNext){
+    this.stepper?.next()
+   } else {
+    this.stepper?.previous()
+   }
   }
 
 }

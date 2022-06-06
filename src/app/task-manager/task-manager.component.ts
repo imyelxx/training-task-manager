@@ -42,9 +42,9 @@ export class TaskManagerComponent implements OnInit {
     
   }
 
-  openDialog(action: string, task?: any){
+  openDialog(title: string, task?: any){
     const dialog = this.dialog.open(TaskDialogComponent, { 
-      data: action
+      data: { title: title, task: task }
     })
   }
 
@@ -69,14 +69,10 @@ export class TaskManagerComponent implements OnInit {
 }
 
 const ELEMENT_DATA: TaskModel[] = [
-  {id: 1, name: 'Learn - Angular', description: 'Sample description here', status: 'Inprogress', completionRate: 0, created: new Date(),  modified: new Date()},
-  {id: 2, name: 'Learn - C#', description: 'Sample description here', status: 'Done', completionRate: 5, created: new Date(),  modified: new Date()},
-  {id: 3, name: 'Learn - Typescript', description: 'Sample description here', status: 'Done', completionRate: 4, created: new Date(),  modified: new Date()},
-  {id: 4, name: 'Learn - HTML', description: 'Sample description here', status: 'New', completionRate: 3, created: new Date(),  modified: new Date()},
-  {id: 5, name: 'Learn - CSS', description: 'Sample description here', status: 'Done', completionRate: 2, created: new Date(),  modified: new Date()},
-  {id: 6, name: 'Learn - SQL', description: 'Sample description here', status: 'New', completionRate: 1, created: new Date(),  modified: new Date()},
-  {id: 7, name: 'Learn - Unit Testing', description: 'Sample description here', status: 'Done', completionRate: 3, created: new Date(),  modified: new Date()},
-  {id: 8, name: 'Learn - SASS', description: 'Sample description here', status: 'New', completionRate: 2, created: new Date(),  modified: new Date()},
-  {id: 9, name: 'Learn - LESS', description: 'Sample description here', status: 'Inprogress', completionRate: 5, created: new Date(),  modified: new Date()},
-  {id: 10, name: 'Learn - AngularJs', description: 'Sample description here', status: 'Inprogress', completionRate: 4, created: new Date(),  modified: new Date()},
+  {
+    id: 1, name: 'Learn - Angular', description: 'Sample description here', status: 'Inprogress', completionRate: 0, created: new Date(),  modified: new Date(),
+    tags: [ 
+      { id: 1, name: 'Sample', created: new Date(),  modified: new Date()}
+    ]
+  },
 ];
