@@ -12,7 +12,7 @@ export class TaskDialogComponent implements OnInit {
 
   title: string = '';
   taskManagerFormGroup = new FormGroup({
-    name: new FormControl(null, [Validators.required, Validators.email]),
+    name: new FormControl(null, [Validators.required]),
     description: new FormControl(),
     status: new FormControl(),
   })

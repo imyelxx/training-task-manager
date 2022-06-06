@@ -7,7 +7,6 @@
             <mat-label>Name</mat-label>
             <input matInput formControlName="name" placeholder="Name">
             <mat-error *ngIf="taskManagerFormGroup.controls['name'].hasError('required')">Name is required</mat-error>
-            <mat-error *ngIf="taskManagerFormGroup.controls['name'].hasError('email')">Wrong email format</mat-error>
         </mat-form-field>
 
         <mat-form-field class="form-field-item full-width" appearance="fill">

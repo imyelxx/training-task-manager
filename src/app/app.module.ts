@@ -9,7 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { TaskDialogComponent } from './task-manager/task-dialog/task-dialog.component';
 import { ConfirmationDialogComponent } from './task-manager/confirmation-dialog/confirmation-dialog.component';
-import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe'
+import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
+import { RatingComponentComponent } from './shared/rating-component/rating-component.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe'
     TaskManagerComponent,
     TaskDialogComponent,
     ConfirmationDialogComponent,
-    ConvertToSpacesPipe
+    ConvertToSpacesPipe,
+    RatingComponentComponent,
   ],
   exports: [ ],
   imports: [
