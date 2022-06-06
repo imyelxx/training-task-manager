@@ -95,7 +95,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ScrollingModule,
     ReactiveFormsModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSortModule
   ]
 })
 export class MaterialModule {}

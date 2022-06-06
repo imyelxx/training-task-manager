@@ -9,21 +9,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { TaskDialogComponent } from './task-manager/task-dialog/task-dialog.component';
 import { ConfirmationDialogComponent } from './task-manager/confirmation-dialog/confirmation-dialog.component';
+import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe'
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskManagerComponent,
     TaskDialogComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    ConvertToSpacesPipe
   ],
+  exports: [ ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
