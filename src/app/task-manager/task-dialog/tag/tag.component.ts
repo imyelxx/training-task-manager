@@ -13,11 +13,10 @@ export class TagComponent implements OnInit {
   tagFormGroup = new FormGroup({
     name: new FormControl(null, [Validators.required]),
   })
-  
+
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.tags)
     this.setValue()
   }
 

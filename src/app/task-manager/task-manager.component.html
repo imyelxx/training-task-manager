@@ -19,7 +19,7 @@
         </div>
         <!--end: header -->
         <!--start: table -->
-        <div class="table-container">
+        <div class="table-container" [ngClass]="dataSource.data.length > 0 ? 'visible' : 'hidden'">
             <table mat-table matSort [dataSource]="dataSource">
 
                 <!-- Task Name Column -->
@@ -27,17 +27,17 @@
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Name </th>
                   <td mat-cell *matCellDef="let element"> {{element.name | convertToSpaces: '-' }} </td>
                 </ng-container>
-              
+
                 <!-- Description Column -->
                 <ng-container matColumnDef="description">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
                   <td mat-cell *matCellDef="let element"> {{element.description}} </td>
                 </ng-container>
-              
+
                 <!-- Status Column -->
                 <ng-container matColumnDef="status">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
-                  <td mat-cell *matCellDef="let element"> 
+                  <td mat-cell *matCellDef="let element">
                     <div class="pill" [ngClass]="{'pill-new': element.status == 'New', 'pill-inprogress': element.status == 'Inprogress', 'pill-done': element.status == 'Done'}">
                       {{element.status}}
                     </div>
@@ -59,26 +59,29 @@
                   <!-- Completion Rating Column -->
                   <ng-container matColumnDef="completionRate">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Completion Rating </th>
-                    <td mat-cell *matCellDef="let element"> 
+                    <td mat-cell *matCellDef="let element">
                       <ng-container *ngIf="element.status == 'Done'">
                           <app-rating-component [rating]="element.completionRate"></app-rating-component>
                       </ng-container>
                     </td>
                   </ng-container>
-              
+
                 <!-- Action Column -->
                 <ng-container matColumnDef="action">
                   <th mat-header-cell *matHeaderCellDef> Action </th>
                   <td mat-cell *matCellDef="let element">
                     <button (click)="openDialog('Edit', element)" class="mr-3" mat-flat-button color="primary">Edit</button>
-                    <button *ngIf="element.status != 'Done'" (click)="deleteDialog()" mat-flat-button color="warn">Delete</button>
+                    <button *ngIf="element.status != 'Done'" (click)="deleteDialog(element)" mat-flat-button color="warn">Delete</button>
                   </td>
                 </ng-container>
-              
+
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
               </table>
               <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+        <div [ngClass]="dataSource.data.length > 0 ? 'hidden': 'visible'">
+          <tr>No results found.</tr>
         </div>
         <!--end: table -->
 </section>

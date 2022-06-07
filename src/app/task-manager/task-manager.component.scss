@@ -1,6 +1,6 @@
 .main-container {
     padding: 2em;
-    
+
     .pill {
         text-align: center;
         width: fit-content;
@@ -8,12 +8,12 @@
         border-radius: 50px;
     }
 
-    .pill-new {    
+    .pill-new {
         color: #009EF7;
         background-color: #F1FAFF;
     }
 
-    .pill-inprogress {    
+    .pill-inprogress {
         color: #FFC700;
         background-color: #FFF8DD;
     }
@@ -27,4 +27,12 @@
     .header-container-title { font-size: 16px;}
     .mat-table {width: 100%;}
     .mr-3 { margin-right: 3px;}
+
+        .hidden {
+          visibility: hidden;
+        }
+
+        .visible {
+          visibility: visible;
+        }
 }
