@@ -1,0 +1,168 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Learn - Angular",
+      "description": "Study life cycle hooks",
+      "status": "In Progress",
+      "completionRate": 0,
+      "created": "2022-06-09T10:36:41.869Z",
+      "modified": "2022-06-09T10:36:41.869Z",
+      "tags": [
+        {
+          "id": 1,
+          "name": "Sample",
+          "created": "2022-06-09T10:36:41.869Z",
+          "modified": "2022-06-09T10:36:41.869Z"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Learn - C#",
+      "description": "Study on C# data types",
+      "status": "In Progress",
+      "completionRate": 0,
+      "created": "2022-06-09T10:36:41.869Z",
+      "modified": "2022-06-09T10:36:41.869Z",
+      "tags": [
+        {
+          "id": 1,
+          "name": "Sample",
+          "created": "2022-06-09T10:36:41.869Z",
+          "modified": "2022-06-09T10:36:41.869Z"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Create Task Service",
+      "description": "Task Service containing CRUD operations",
+      "status": "In Progress",
+      "completionRate": 0,
+      "created": "2022-06-09T10:36:41.869Z",
+      "modified": "2022-06-09T10:36:41.869Z",
+      "tags": [
+        {
+          "id": 1,
+          "name": "Sample",
+          "created": "2022-06-09T10:36:41.869Z",
+          "modified": "2022-06-09T10:36:41.869Z"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Create Generic Modal Component",
+      "description": "Generic Modal Component",
+      "status": "In Progress",
+      "completionRate": 0,
+      "created": "2022-06-09T10:36:41.869Z",
+      "modified": "2022-06-09T10:36:41.869Z",
+      "tags": [
+        {
+          "id": 1,
+          "name": "Sample",
+          "created": "2022-06-09T10:36:41.869Z",
+          "modified": "2022-06-09T10:36:41.869Z"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Create Date Time Pipe",
+      "description": "Date Time Pipe",
+      "status": "New",
+      "completionRate": 0,
+      "created": "2022-06-09T10:36:41.869Z",
+      "modified": "2022-06-09T10:36:41.869Z",
+      "tags": [
+        {
+          "id": 1,
+          "name": "Sample",
+          "created": "2022-06-09T10:36:41.869Z",
+          "modified": "2022-06-09T10:36:41.869Z"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Create Stored Procedure for User Data",
+      "description": "Create an update/insert sotred procedure for user data",
+      "status": "New",
+      "completionRate": 0,
+      "created": "2022-06-09T10:36:41.869Z",
+      "modified": "2022-06-09T10:36:41.869Z",
+      "tags": [
+        {
+          "id": 1,
+          "name": "Sample",
+          "created": "2022-06-09T10:36:41.869Z",
+          "modified": "2022-06-09T10:36:41.869Z"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Create authentication API for Google Maps",
+      "description": "Create an api that will handle Google Maps authentication",
+      "status": "New",
+      "completionRate": 0,
+      "created": "2022-06-09T10:36:41.869Z",
+      "modified": "2022-06-09T10:36:41.869Z",
+      "tags": [
+        {
+          "id": 1,
+          "name": "Sample",
+          "created": "2022-06-09T10:36:41.869Z",
+          "modified": "2022-06-09T10:36:41.869Z"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Configure API security",
+      "description": "Allow certian user roles to access the API",
+      "status": "Done",
+      "tags": [
+        {
+          "id": 1,
+          "name": "Sample",
+          "created": "2022-06-09T10:36:41.869Z",
+          "modified": "2022-06-09T10:36:41.869Z"
+        },
+        {
+          "id": 0,
+          "name": "SAmplolsasd",
+          "created": "2022-06-09T12:30:20.202Z",
+          "modified": "2022-06-09T12:30:20.202Z"
+        }
+      ],
+      "modified": "2022-06-09T12:30:36.898Z",
+      "created": "2022-06-09T10:36:41.869Z"
+    },
+    {
+      "id": 11,
+      "name": "New Task",
+      "description": "Desc",
+      "status": "Done",
+      "tags": [
+        {
+          "id": 0,
+          "name": "sd",
+          "created": "2022-06-09T12:36:07.967Z",
+          "modified": "2022-06-09T12:36:07.967Z"
+        },
+        {
+          "id": 0,
+          "name": "sd",
+          "created": "2022-06-09T12:36:08.847Z",
+          "modified": "2022-06-09T12:36:08.847Z"
+        }
+      ],
+      "modified": "2022-06-09T12:36:25.602Z",
+      "created": "2022-06-09T12:36:23.666Z",
+      "completionRate": 0
+    }
+  ]
+}

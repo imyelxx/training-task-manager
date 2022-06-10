@@ -12,6 +12,8 @@ import { ConfirmationDialogComponent } from './task-manager/confirmation-dialog/
 import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
 import { RatingComponentComponent } from './shared/rating-component/rating-component.component';
 import { TagComponent } from './task-manager/task-dialog/tag/tag.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { TagComponent } from './task-manager/task-dialog/tag/tag.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    HttpClientModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]

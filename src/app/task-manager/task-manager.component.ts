@@ -28,9 +28,12 @@ export class TaskManagerComponent implements OnInit {
     this.populateTable();
   }
 
-  populateTable(isAction?: boolean): void {
-    let data = this.tm.getTableData(isAction);
-    this.dataSource.data = data;
+  populateTable(): void {
+    this.tm.getTableData().subscribe({
+      next: (data: any) => {
+        this.dataSource.data = data;
+      }
+    });
     //this.clonedDataSource = data;
   }
 
@@ -40,32 +43,47 @@ export class TaskManagerComponent implements OnInit {
   }
 
   search(){
-    const results = this.tm.search(this.searchKey)
-    this.dataSource = new MatTableDataSource(results);
+    this.tm.search(this.searchKey).subscribe({
+      next: (results) => {
+        this.dataSource = new MatTableDataSource(results);
+      }
+    });
   }
 
   openDialog(title: string, task?: any){
-    let tsk = null;
     if (title == "Edit" && task){
-      tsk = this.tm.getTableDataById(task.id);
-    }
+      this.tm.getTableDataById(task.id).subscribe({
+        next: (t) => {
+          const dialog = this.dialog.open(TaskDialogComponent, {
+            data: { title: title, task: t }
+          })
 
-    const dialog = this.dialog.open(TaskDialogComponent, {
-      data: { title: title, task: !tsk ? null : tsk }
-    })
-
-    dialog.afterClosed().subscribe((data: any) => {
-      if (data && data.data !== undefined) {
-        if (title == "Add") {
-          this.tm.addTask(data)
-        } else if (title == "Edit") {
-          this.tm.editTask(data)
+          dialog.afterClosed().subscribe((data: any) => {
+            if (data && data.data !== undefined) {
+              this.tm.editTask(data).subscribe({
+                next: () => {
+                  this.populateTable()
+                  this.cd.detectChanges()
+                }
+              });
+            }
+          });
         }
+      });
+    } else if(title == "Add"){
+      const dialog = this.dialog.open(TaskDialogComponent, {
+        data: { title: title, task: null }
+      })
 
-        this.populateTable(true)
-        this.cd.detectChanges()
-      }
-    });
+      dialog.afterClosed().subscribe((data: any) => {
+        if (data && data.data !== undefined) {
+          this.tm.addTask(data).subscribe(() => {
+            this.populateTable()
+            this.cd.detectChanges()
+          });
+        }
+      });
+    }
   }
 
   deleteDialog(task: any) {
@@ -80,9 +98,12 @@ export class TaskManagerComponent implements OnInit {
 
     dialog.afterClosed().subscribe((isDelete: boolean) => {
       if (isDelete) {
-        this.tm.deleteTask(task.id)
-        this.populateTable(true)
-        this.cd.detectChanges()
+        this.tm.deleteTask(task.id).subscribe({
+          next: () => {
+            this.populateTable()
+            this.cd.detectChanges()
+          }
+        });
       }
     })
   }
