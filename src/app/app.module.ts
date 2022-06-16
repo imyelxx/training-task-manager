@@ -14,7 +14,6 @@ import { RatingComponentComponent } from './shared/rating-component/rating-compo
 import { TagComponent } from './task-manager/task-dialog/tag/tag.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule
-  ],
+],
   providers: [ ],
   bootstrap: [AppComponent]
 })

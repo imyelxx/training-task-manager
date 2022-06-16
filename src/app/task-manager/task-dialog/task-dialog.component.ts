@@ -105,6 +105,7 @@ export class TaskDialogComponent implements OnInit {
       }
     })
 
+    console.log("this.taskManagerFormGroup.value", this.taskManagerFormGroup.value)
     this.cancel(this.taskManagerFormGroup.value);
   }
 

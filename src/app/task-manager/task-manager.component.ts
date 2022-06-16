@@ -77,13 +77,17 @@ export class TaskManagerComponent implements OnInit {
 
       dialog.afterClosed().subscribe((data: any) => {
         if (data && data.data !== undefined) {
-          this.tm.addTask(data).subscribe(() => {
-            this.populateTable()
-            this.cd.detectChanges()
-          });
+          this.addTaskService(data)
         }
       });
     }
+  }
+
+  addTaskService(data: any){
+    this.tm.addTask(data).subscribe(() => {
+      this.populateTable()
+      this.cd.detectChanges()
+    });
   }
 
   deleteDialog(task: any) {
@@ -98,14 +102,18 @@ export class TaskManagerComponent implements OnInit {
 
     dialog.afterClosed().subscribe((isDelete: boolean) => {
       if (isDelete) {
-        this.tm.deleteTask(task.id).subscribe({
-          next: () => {
-            this.populateTable()
-            this.cd.detectChanges()
-          }
-        });
+        this.deleteTaskService(task)
       }
     })
+  }
+
+  deleteTaskService(task: any){
+    this.tm.deleteTask(task.id).subscribe({
+      next: () => {
+        this.populateTable()
+        this.cd.detectChanges()
+      }
+    });
   }
 
   notifyEvent(event: number){
